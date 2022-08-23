@@ -14,6 +14,9 @@ Route::middleware(['admin'])->group(function(){
 	Route::prefix('admin')->group(function()
 	{
 	  	Route::get('home', [App\Http\Controllers\admin\HomeController::class, 'index'])->name('admin.home');
+	  	
+	  	Route::get('testp', [App\Http\Controllers\admin\HomeController::class, 'testprocedure'])->name('admin.testp');
+
 		Route::any('/logout', [App\Http\Controllers\admin\AdminController::class, 'logout'])->name('admin.logout');
 		Route::any('/profile', [App\Http\Controllers\admin\AdminController::class, 'admin_profile'])->name('admin.profile');
 		Route::any('/profile-password', [App\Http\Controllers\admin\AdminController::class, 'changepassword'])->name('admin.profile_password');

@@ -9,6 +9,7 @@ use App\Models\admin\CanteenMaster;
 use App\Models\admin\DepartmentMaster;
 use App\Models\admin\DivisionMaster;
 use Session;
+use DB;
 
 class HomeController extends Controller
 {
@@ -42,5 +43,15 @@ class HomeController extends Controller
         
         return view('admin.dashboard',['user'=>$totalusers,'canteen'=>$totalcanteen,'department'=>$totaldepartment,'division'=>$totaldivision]);
     }
-}
 
+    public function testprocedure(){
+        $submit =  DB::connection("sqlsrv")->select("SET ANSI_NULLS ON; SET ANSI_WARNINGS ON;EXEC TransRecords");
+        //DB::connection("sqlsrv")->statement('exec autoid @canteenCode=1, @transId=1');
+        
+        foreach($submit  as $row)
+        {
+            echo $row->item_desc;
+        }
+        dump($submit);
+    }
+}
