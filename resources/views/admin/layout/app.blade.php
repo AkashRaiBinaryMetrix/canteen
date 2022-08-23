@@ -372,7 +372,7 @@
                     </li>
                      @endif
                    
-                    <!-- <li class="@if(\Request::route()->getName()=='admin.create.card' || \Request::route()->getName()=='admin.manage.card') active @endif">
+                    <li class="@if(\Request::route()->getName()=='admin.create.card' || \Request::route()->getName()=='admin.manage.card') active @endif">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">pages</i>
                             <span>Card Inventory Master</span>
@@ -385,7 +385,7 @@
                                 <a href="{{route('admin.manage.card')}}">Manage Card</a>
                             </li>
                         </ul>
-                    </li> -->
+                    </li> 
                     @php 
                     $permissionPoll=DB::table('roles_permissions')->where('role_id',$user->role_id)->where('title','EmployeeMeal')->first();
                     @endphp
